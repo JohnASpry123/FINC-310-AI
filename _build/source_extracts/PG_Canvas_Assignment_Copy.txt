@@ -1,0 +1,53 @@
+# PG_Canvas_Assignment_Copy.docx
+P[Title]: Canvas Assignment Copy
+P[Normal]: FINC 310 | Procter & Gamble Financial Story Dashboard
+P[Heading 1]: Assignment Overview
+P[Normal]: Your team will use P&G's audited FY2025 Form 10-K data, AI, and Python to create and audit a four-part financial story dashboard. You are permitted and expected to use AI, but every team member is responsible for understanding and verifying the final work.
+P[Heading 2]: Files Provided in Canvas
+P[List Bullet]: PG_Student_Group_Assignment.docx
+P[List Bullet]: PG_FinancialStory_Student.xlsx
+P[List Bullet]: P&G FY2025 annual report / Form 10-K
+P[List Bullet]: PG_Model_AI_Prompt_and_REM_Guide.docx
+P[List Bullet]: Python installation instructions or campus lab instructions
+P[Heading 1]: Required Dashboard
+P[List Number]: Income statement Sankey: where each FY2025 sales dollar went.
+P[List Number]: Free cash flow waterfall: EBIT to textbook FCF, cash FCF, and P&G adjusted FCF.
+P[List Number]: Five-year net sales and diluted EPS trend: FY2021-FY2025.
+P[List Number]: DuPont ROE decomposition: profit margin × asset turnover × equity multiplier.
+P[Heading 1]: Required Submission Files
+P[List Bullet]: Completed student Excel workbook.
+P[List Bullet]: Executable Python .py file.
+P[List Bullet]: Four individual PNG files and one combined dashboard PNG.
+P[List Bullet]: Report containing AI prompt history, REM block, annotated code, verification log, corrections, and financial interpretation.
+P[List Bullet]: Optional single ZIP containing all required files.
+P[Heading 1]: AI Documentation Requirements
+P[List Bullet]: Submit the exact prompt or prompt sequence used.
+P[List Bullet]: Include REM sections for Reasoning Summary, Equations, Method, and Limitations.
+P[List Bullet]: Document at least one AI assumption, one possible silent failure, and one correction.
+P[List Bullet]: Do not submit hidden chain-of-thought; provide concise auditable explanations.
+P[Heading 1]: How You Will Be Graded
+P[List Bullet]: Accuracy and source reconciliation.
+P[List Bullet]: Quality and clarity of the four visualizations.
+P[List Bullet]: Correct FCF and DuPont calculations.
+P[List Bullet]: Executable, understandable, and reproducible Python.
+P[List Bullet]: Evidence of AI verification and correction.
+P[List Bullet]: Coherent financial interpretation and individual understanding.
+P[Heading 1]: Important Notes
+P[List Bullet]: Use the audited fiscal year ended June 30, 2025. Do not annualize quarterly data.
+P[List Bullet]: Use GAAP diluted EPS consistently for the five-year trend.
+P[List Bullet]: P&G adjusted FCF is a non-GAAP measure and must be labeled as such.
+P[List Bullet]: A visually attractive dashboard that does not reconcile to the audited data will receive limited credit.
+P[List Bullet]: The professor may ask any team member to explain any portion of the submitted code or analysis.
+P[Heading 1]: Submission Checklist
+P[Normal]: ☐ All four images open and are readable.
+P[Normal]: ☐ The Python file runs using the submitted workbook.
+P[Normal]: ☐ The sanity-check CSV or worksheet contains no unexplained REVIEW results.
+P[Normal]: ☐ The report includes the AI prompt, REM block, code annotation, and corrections.
+P[Normal]: ☐ Every team member has reviewed the entire package.
+TABLE 1
+Assignment type | Group assignment with individual accountability
+Points | 100
+Submission | One group submission
+Due date | [Enter Canvas due date]
+Available from / until | [Enter availability dates]
+Allowed file types | xlsx, py, png, pdf or docx, and optional zip

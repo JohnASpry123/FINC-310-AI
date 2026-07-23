@@ -1,0 +1,33 @@
+# PG_Grading_Rubric.docx
+P[Title]: FINC 310 Grading Rubric
+P[Normal]: Procter & Gamble Financial Story Dashboard | 100 Points
+P[Normal]: Use this analytic rubric for the group submission. The professor may reduce an individual student's score if that student cannot explain the team's code, formulas, or financial conclusions.
+P[Normal]: Total: 100 points
+P[Heading 1]: Automatic or Severe Deductions
+P[Heading 1]: Suggested Score Bands
+TABLE 1
+Criterion | Pts | Exemplary | Proficient | Developing | Insufficient
+Data provenance and reconciliation | 10 | All values trace to the correct audited fiscal year; units, signs, and source pages are documented; identities reconcile. | Minor citation or formatting issue; no material numerical error. | One or more values are weakly sourced, inconsistently signed, or not fully reconciled. | Uses wrong period, invented data, or material unreconciled values.
+Income statement Sankey | 12 | All nodes balance; widths are proportional; operating and non-operating items are correctly classified; labels are clear. | Accurate and understandable with only minor visual or labeling weakness. | One classification, flow-width, or reconciliation issue reduces clarity. | Materially incorrect or missing.
+Free cash flow waterfall | 18 | NOPAT, NOWC, textbook FCF, cash FCF, residual, and adjusted FCF are correct and clearly distinguished. | Correct totals with a minor explanation or presentation weakness. | One material formula/sign issue or weak reconciliation explanation. | Materially incorrect, hides residual, or treats non-GAAP FCF as GAAP.
+Five-year revenue and EPS trend | 10 | Uses consistent GAAP data; CAGRs are correct; dual units are clear; interpretation is financially meaningful. | Accurate with a minor chart or interpretation weakness. | One data consistency or CAGR error. | Missing, materially wrong, or mixes GAAP and core EPS.
+DuPont ROE decomposition | 15 | All factors use consistent average balances; product equals direct ROE; profitability, efficiency, and leverage are interpreted. | Correct with a minor rounding or interpretation issue. | One denominator inconsistency or conceptual weakness. | Materially incorrect or missing.
+Python code and REM documentation | 15 | Executable, organized, commented, reproducible, validates inputs, and includes Reasoning Summary, Equations, Method, and Limitations. | Runs correctly with minor organization or documentation weakness. | Runs only after manual fixes, uses fragile hard-coded logic, or has incomplete REM documentation. | Does not run, is largely unexplained, or cannot be reproduced.
+AI verification and corrections | 10 | Verification sheet complete; tolerances are sensible; at least one meaningful assumption/weakness/correction is documented. | Checks are complete with limited depth in the narrative. | Several checks or correction explanations are incomplete. | Little or no evidence of human verification.
+Financial story and executive interpretation | 5 | Integrates all four visuals into a coherent, appropriately cautious financial conclusion. | Generally coherent with minor omissions. | Mostly describes charts without integrating them. | Unsupported or materially misleading conclusion.
+Presentation and individual accountability | 5 | Clear five-minute presentation; all members participate and answer questions accurately. | Generally clear; one member shows limited understanding. | Uneven participation or several weak answers. | Team cannot explain its own work.
+TABLE 2
+Issue | Possible Deduction
+Wrong fiscal period or annualized quarterly data | Up to -20
+Material invented or unsourced financial data | Up to -30 and academic-integrity review
+Code does not run from submitted files | Up to -15
+Undisclosed AI use or missing prompt/REM block | Up to -10
+Team member cannot explain assigned or randomly selected code/formula | Individual reduction up to -15
+Dashboard omits one required visualization | Full criterion score lost
+TABLE 3
+Score | Performance
+93-100 | Exceptional professional-quality work
+85-92 | Strong work with limited weaknesses
+75-84 | Competent but contains meaningful analytical or communication gaps
+65-74 | Major weaknesses; partial achievement of objectives
+Below 65 | Insufficient evidence of mastery or verification
