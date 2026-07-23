@@ -1,0 +1,7 @@
+Check,Calculated,Expected,Difference,Status
+Revenue identity,84284.0,84284.0,0.0,PASS
+Gross profit identity,43120.0,43120.0,0.0,PASS
+Pretax income identity,20167.0,20167.0,0.0,PASS
+Net earnings identity,16065.0,16065.0,0.0,PASS
+Adjusted FCF identity,14606.0,14606.0,0.0,PASS
+DuPont ROE identity,0.312417957469152,0.312417957469152,0.0,PASS
