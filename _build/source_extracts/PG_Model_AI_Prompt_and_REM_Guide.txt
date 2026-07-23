@@ -1,0 +1,76 @@
+# PG_Model_AI_Prompt_and_REM_Guide.docx
+P[Title]: Model AI Prompt and REM Guide
+P[Normal]: FINC 310 | Procter & Gamble Financial Story Dashboard
+P[Heading 1]: Purpose
+P[Normal]: This guide gives students a strong starting prompt while preserving the requirement that they inspect, test, and understand the final program.
+P[Heading 1]: Model Prompt
+P[Code Block]: You are assisting a FINC 310 student team. Use the attached
+PG_FinancialStory_Student.xlsx workbook. Do not search for or invent replacement
+financial data.
+
+Write one executable Python program named pg_financial_story.py that:
+1. reads the 01_Input worksheet using the Metric_ID column;
+2. validates that required metrics and fiscal years exist;
+3. creates an FY2025 income statement Sankey;
+4. creates a free cash flow waterfall that separately labels textbook FCF,
+   cash FCF, and P&G adjusted FCF;
+5. creates an FY2021-FY2025 net sales and GAAP diluted EPS trend;
+6. creates a DuPont ROE decomposition using average FY2024/FY2025 assets and
+   total shareholders' equity;
+7. writes a CSV of accounting and finance sanity checks;
+8. stops with a clear error message if a required identity fails;
+9. saves four individual PNG files and one combined dashboard PNG; and
+10. uses relative paths or command-line arguments.
+
+Begin the file with concise REM comments containing:
+- Reasoning Summary
+- Equations
+- Method
+- Limitations
+
+Comment every major function. Use USD millions except EPS. Explain all sign
+conventions. Do not provide hidden chain-of-thought; provide concise auditable
+rationale. After the code, list the expected output files and the commands
+needed to install packages and run the program.
+P[Heading 1]: Required Follow-Up Prompts
+P[List Number]: Audit your own code for any hard-coded financial values that should be read from the workbook. Return a table of every hard-coded number and whether it is justified.
+P[List Number]: List every accounting identity used in the program and show where the program tests it.
+P[List Number]: Explain how the code handles negative interest expense and negative capital expenditures.
+P[List Number]: Identify three ways the charts could be numerically correct but visually misleading.
+P[List Number]: Rewrite any function that depends on fixed Excel row numbers so that it uses Metric_ID values.
+P[List Number]: Generate five oral questions the professor could ask to test whether each student understands the program. Then make at least one meaningful code revision after the AI draft—for example, improve validation, remove a hard-coded row, correct a sign, clarify a label, or prevent a misleading axis.
+P[Heading 1]: REM Comment Template
+P[Code Block]: # REM - REASONING SUMMARY
+# State the purpose of the program and how the four visuals fit together.
+
+# REM - EQUATIONS
+# List Gross Profit, NOPAT, Operating NOWC, Textbook FCF, Cash FCF,
+# CAGR, Profit Margin, Asset Turnover, Equity Multiplier, and ROE.
+
+# REM - METHOD
+# Explain workbook input, validation, calculations, chart creation,
+# output files, and failure handling.
+
+# REM - LIMITATIONS
+# Explain simplified NOWC, non-GAAP adjusted FCF, fiscal-year scope,
+# data-source dependence, and risks of misleading chart design.
+P[Heading 1]: AI Audit Questions
+P[List Bullet]: Did AI use net earnings or net earnings attributable to P&G? Is the choice consistent with the equity denominator?
+P[List Bullet]: Did AI calculate tax on EBIT using the effective tax rate or simply subtract reported income taxes?
+P[List Bullet]: Did AI accidentally add CapEx because the source value was already negative?
+P[List Bullet]: Did AI mix balance-sheet changes with cash-flow-statement working-capital effects?
+P[List Bullet]: Did AI use GAAP diluted EPS for all five years?
+P[List Bullet]: Did AI calculate CAGR over four intervals rather than five?
+P[List Bullet]: Did AI use average assets and equity consistently?
+P[List Bullet]: Do chart widths, bar directions, labels, and units agree with the underlying values?
+P[Heading 1]: Code Understanding Worksheet
+TABLE 1
+Code Area | Student Explanation Required
+Workbook input | Which line reads Excel? What happens if the sheet is renamed?
+Metric extraction | How are Metric_ID values converted into a dictionary?
+Sign conventions | Where are interest expense and CapEx converted to positive magnitudes?
+Sanity checks | Which condition stops the program?
+Sankey | How are flow widths calculated?
+Waterfall | How are subtotal and change bars distinguished?
+Trend | Why are two y-axes used?
+DuPont | Where are average assets and average equity calculated?

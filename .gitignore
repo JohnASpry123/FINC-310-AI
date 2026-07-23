@@ -1,0 +1,17 @@
+# Generated quality-assurance and rendering output
+_build/qa/
+_build/qa_tmp/
+_build/slide_qa/
+qa/
+qa_tmp/
+slide_qa/
+
+# Temporary LibreOffice conversion profiles
+_build/lo_temp_student/
+_build/lo_temp_student_escalated/
+lo_temp_student/
+lo_temp_student_escalated/
+
+# Generated inspection records and Office lock files
+*.inspect.ndjson
+~$*

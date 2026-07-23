@@ -1,0 +1,230 @@
+# PG_Instructor_Solution_Manual.docx
+P[Title]: FINC 310 Procter & Gamble Financial Story Dashboard
+P[Normal]: Instructor Solution Manual | Audited FY2025 Form 10-K
+P[Normal]: INSTRUCTOR USE
+P[Normal]: Instructor premise. The assignment treats AI as a junior analyst whose work must be independently verified. Students receive standardized audited data, use AI to help write Python, and remain responsible for every financial definition, formula, number, and visual.
+P[List Bullet]: The workbook is standardized so that all groups spend class time analyzing finance rather than cleaning Bloomberg exports.
+P[List Bullet]: The Python solution includes REM comments: Reasoning Summary, Equations, Method, and Limitations.
+P[List Bullet]: The student version withholds calculation formulas and dashboard images while preserving the audited source data.
+P[List Bullet]: The instructor version contains formulas, answer checks, and the four completed visualizations.
+P[Heading 1]: 1. Learning Objectives and Course Alignment
+P[Normal]: The assignment integrates Chapters 1-8 of Brigham and Houston by requiring students to connect financial statements, free cash flow, value creation, historical growth, and the DuPont drivers of ROE.
+P[Heading 2]: Suggested Class Format
+P[List Number]: Before class: students open the student workbook and install the listed Python packages.
+P[List Number]: Class period 1: source orientation, data definitions, manual calculations, and first AI prompt.
+P[List Number]: Between periods: teams run and debug Python and complete the verification sheet.
+P[List Number]: Class period 2: code walk-throughs, financial interpretation, five-minute presentations, and random individual questions.
+P[Heading 2]: Six-Person Team Roles
+P[List Bullet]: Data Controller: confirms source pages, units, fiscal year, signs, and workbook integrity.
+P[List Bullet]: Income Statement Lead: owns the Sankey and common-size analysis.
+P[List Bullet]: Cash Flow Lead: owns NOPAT, NOWC, textbook FCF, and the company FCF reconciliation.
+P[List Bullet]: DuPont and Trend Lead: owns the five-year history, CAGRs, and ROE decomposition.
+P[List Bullet]: Python/AI Lead: maintains executable code and REM comments.
+P[List Bullet]: Audit/Presentation Lead: coordinates sanity checks, corrections, and final financial story.
+P[Normal]: Every student must understand all four visualizations. Roles distribute work; they do not divide responsibility.
+P[Heading 1]: 2. Data Sources and Extraction
+P[Normal]: The uploaded 2025 annual report is a Form 10-K for the fiscal year ended June 30, 2025. The audited consolidated statements appear on report pages 36-39. The P&G-provided Excel file contains the same statements in machine-readable form.
+P[Heading 2]: Standardization Rules
+P[List Bullet]: Use USD millions except diluted EPS.
+P[List Bullet]: Keep fiscal-year labels as FY2021 through FY2025.
+P[List Bullet]: Preserve expense signs exactly in the raw input tab; use ABS only when a formula requires a positive magnitude.
+P[List Bullet]: Exclude cash and interest-bearing debt from operating NOWC.
+P[List Bullet]: Use average assets and average total shareholders' equity in the DuPont analysis.
+P[List Bullet]: Clearly distinguish textbook FCF, cash FCF, and P&G adjusted FCF.
+P[Heading 2]: Source URLs
+P[Code Block]: https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+P[Code Block]: https://www.sec.gov/Archives/edgar/data/80424/000008042422000064/pg-20220630.htm
+P[Code Block]: https://www.pginvestor.com/financials/annual-reports/default.aspx
+P[Heading 1]: 3. Audited FY2025 Income Statement Solution
+P[Heading 2]: Core Identities
+P[Normal]: Gross Profit = $84,284 - $41,164 = $43,120 million.
+P[Normal]: Operating Income = $43,120 - $22,669 - $0 impairment = $20,451 million.
+P[Normal]: Net Non-Operating Expense = $907 interest expense - $469 interest income - $154 other income = $284 million.
+P[Normal]: Earnings Before Taxes = $20,451 - $284 = $20,167 million.
+P[Normal]: Net Earnings = $20,167 - $4,102 = $16,065 million.
+P[Heading 2]: Interpretation
+P[Normal]: P&G retained 51.2% of sales after product costs, 24.3% after operating expenses, and 19.1% as consolidated net earnings. The most important visual insight is that product cost and SG&A absorb most sales dollars, while net non-operating expense is small relative to operating profit.
+P[Normal]: Source: P&G FY2025 Form 10-K, Consolidated Statements of Earnings, report p. 36.
+P[Heading 1]: 4. Completed Income Statement Sankey
+P[Normal]: Figure 1. P&G FY2025 income statement Sankey. Flow widths are proportional to USD amounts.
+P[Heading 2]: Expected Student Explanation
+P[List Bullet]: For every $1.00 of net sales, approximately $0.49 went to product costs.
+P[List Bullet]: Approximately $0.51 remained as gross profit.
+P[List Bullet]: SG&A used approximately $0.27 of each sales dollar.
+P[List Bullet]: Approximately $0.24 remained as EBIT and $0.19 as net earnings.
+P[List Bullet]: The chart reconciles at every stage; no flow may be invented merely to make the picture look balanced.
+P[Heading 2]: Common AI Errors
+P[List Bullet]: Treating interest expense as an operating expense and subtracting it before EBIT.
+P[List Bullet]: Adding interest income to net sales rather than to non-operating income.
+P[List Bullet]: Using net earnings attributable to P&G as if it were identical to consolidated net earnings without explaining the $91 million noncontrolling interest.
+P[List Bullet]: Creating widths from percentages while labeling the nodes with dollar amounts that do not reconcile.
+P[Heading 1]: 5. Free Cash Flow Solution
+P[Normal]: The assignment deliberately uses two FCF concepts. The textbook calculation starts with EBIT and operating NOWC. The cash-flow statement calculation starts with operating cash flow. P&G then reports an adjusted non-GAAP FCF that adds back the 2017 U.S. Tax Act payment.
+P[Heading 2]: Why Textbook FCF and Cash FCF Differ
+P[Normal]: The simplified NOWC definition captures accounts receivable, inventory, prepaids, accounts payable, and accrued liabilities. Operating cash flow also contains share-based compensation, deferred tax effects, gains or losses on asset sales, pension and other accruals, and additional operating timing items. The $822.23 million residual is therefore a reconciliation item rather than evidence that one of the two calculations is automatically wrong.
+P[Heading 2]: Important Teaching Point
+P[Normal]: Students must label P&G adjusted FCF as a non-GAAP measure and must not substitute it silently for textbook FCF. A good submission shows all three measures and explains their different definitions.
+P[Normal]: Source: P&G FY2025 Form 10-K, report pp. 30 and 39.
+P[Heading 1]: 6. Completed Free Cash Flow Waterfall
+P[Normal]: Figure 2. P&G FY2025 FCF waterfall with textbook, cash-flow-statement, and company-adjusted totals.
+P[Heading 2]: Required Sanity Checks
+P[List Bullet]: NOPAT must equal EBIT plus the negative tax-on-EBIT bar.
+P[List Bullet]: Textbook FCF must equal NOPAT + D&A - CapEx - ΔNOWC.
+P[List Bullet]: Cash FCF must equal operating cash flow - capital expenditures.
+P[List Bullet]: P&G adjusted FCF must equal cash FCF + the $562 million Tax Act payment add-back.
+P[List Bullet]: The final reconciliation difference must be zero, subject to rounding.
+P[Heading 2]: Common AI Errors
+P[List Bullet]: Subtracting negative capital expenditures and thereby adding CapEx.
+P[List Bullet]: Treating a negative operating NOWC balance as automatically bad rather than analyzing the change.
+P[List Bullet]: Using the cash-flow statement working-capital effects as if they were identical to the balance-sheet change in the simplified NOWC formula.
+P[List Bullet]: Calling P&G adjusted FCF GAAP free cash flow.
+P[Heading 1]: 7. Five-Year Revenue and EPS Trend Solution
+P[Normal]: Net sales CAGR: ($84,284 / $76,118)^(1/4) - 1 = 2.58%.
+P[Normal]: Diluted EPS CAGR: ($6.51 / $5.50)^(1/4) - 1 = 4.30%.
+P[Normal]: EPS grew faster than sales over the period. Students should investigate margin changes, nonrecurring charges, taxes, and changes in diluted shares before concluding that operating growth alone caused the difference.
+P[Normal]: Figure 3. P&G net sales and diluted EPS, FY2021-FY2025.
+P[Normal]: Source: P&G FY2025 Form 10-K for FY2023-FY2025 and P&G FY2022 Form 10-K for FY2021-FY2022.
+P[Heading 1]: 8. DuPont ROE Solution
+P[Normal]: P&G's simplified consolidated ROE is high because a strong profit margin is magnified by a 2.408x equity multiplier. The relatively low 0.681x asset turnover is typical of a business with substantial goodwill, intangible assets, and manufacturing assets.
+P[Normal]: Figure 4. P&G FY2025 simplified consolidated DuPont decomposition.
+P[Heading 2]: Optional Advanced Refinement
+P[Normal]: An advanced class may use net income available to common shareholders and average common equity after removing preferred equity and noncontrolling interest. The base FINC 310 assignment uses consolidated net earnings and total shareholders' equity to keep the identity transparent and internally consistent.
+P[Heading 1]: 9. Complete Financial Story
+P[Normal]: Figure 5. Completed one-page financial story dashboard.
+P[Heading 2]: Model Executive Interpretation
+P[Normal]: P&G's FY2025 dashboard describes a mature, highly profitable consumer-products company. Net sales were nearly unchanged from FY2024, but operating income increased because SG&A declined and the prior-year Gillette impairment did not recur. Over FY2021-FY2025, net sales grew at approximately 2.6% annually while diluted EPS grew at approximately 4.3%, showing that per-share earnings outpaced top-line growth. Cash generation remained strong: cash FCF was $14.0 billion and P&G's adjusted FCF was $14.6 billion, although operating cash flow declined from FY2024. DuPont analysis shows that the approximately 31.2% simplified ROE reflects both a strong 19.1% profit margin and substantial financial leverage.
+P[Heading 2]: Discussion Questions
+P[List Bullet]: Is flat revenue growth necessarily a warning sign for a mature consumer-staples company?
+P[List Bullet]: How much of the FY2025 operating-income improvement reflects sustainable cost control versus the absence of a prior-year impairment?
+P[List Bullet]: Why can a company operate with negative operating NOWC?
+P[List Bullet]: What risks accompany a high equity multiplier?
+P[List Bullet]: Which dashboard component would matter most in a discounted-cash-flow valuation?
+P[Heading 1]: 10. AI Prompt, Code Structure, and REM Requirements
+P[Normal]: Students may use AI to draft code, but the prompt must demand concise auditable documentation rather than hidden chain-of-thought. The REM block should state the reasoning summary, equations, method, and limitations.
+P[Code Block]: Using PG_FinancialStory_Student.xlsx, write one executable Python program that:
+1. reads 01_Input using Metric_ID values;
+2. produces the four required visualizations;
+3. writes a sanity-check CSV;
+4. stops if an accounting identity fails; and
+5. includes REM comments for Reasoning Summary, Equations, Method, and Limitations.
+Do not invent missing data. Use USD millions and cite the source workbook.
+P[Heading 2]: Expected Code Architecture
+P[Normal]: 1.  load_metrics(): read and validate the standardized workbook.
+P[Normal]: 2.  build_model(): calculate gross profit, NOPAT, NOWC, FCF, CAGRs, and DuPont factors.
+P[Normal]: 3.  sanity_checks(): test accounting and finance identities.
+P[Normal]: 4.  save_sankey(), save_waterfall(), save_trend(), and save_dupont(): create one figure each.
+P[Normal]: 5.  build_dashboard(): combine the verified figures into a one-page image.
+P[Normal]: 6.  main(): parse paths, run the audit, create outputs, and print file locations.
+P[Heading 2]: Minimum Code Understanding Standard
+P[List Bullet]: Each student can identify where the Excel workbook is read.
+P[List Bullet]: Each student can explain the sign convention for expenses and capital expenditures.
+P[List Bullet]: Each student can trace at least one chart label back to a source cell.
+P[List Bullet]: Each student can explain why the script raises an error if a sanity check fails.
+P[List Bullet]: Each student can modify a title, axis label, and output filename without AI assistance.
+P[Heading 1]: 11. Sanity-Check Answer Key
+P[Heading 2]: Suggested Tolerances
+P[List Bullet]: Financial statement dollar values: ±$1 million.
+P[List Bullet]: Percentages and CAGRs: ±0.05 percentage point.
+P[List Bullet]: Turnover and leverage multiples: ±0.0005x.
+P[List Bullet]: Final reconciliation difference: zero subject to rounding.
+P[Heading 2]: Instructor Oral Questions
+P[List Bullet]: Why is interest expense excluded from EBIT?
+P[List Bullet]: Why is D&A added back in textbook FCF?
+P[List Bullet]: Why does an increase in operating NOWC reduce FCF?
+P[List Bullet]: Why does EPS growth not necessarily equal net-income growth?
+P[List Bullet]: Why does a higher equity multiplier raise ROE and risk?
+P[Heading 1]: 12. Common Errors and Grading Notes
+P[Heading 2]: Files in the Package
+P[List Bullet]: PG_FinancialStory_Instructor.xlsx
+P[List Bullet]: PG_FinancialStory_Student.xlsx
+P[List Bullet]: pg_financial_story_solution.py
+P[List Bullet]: PG_01_Income_Statement_Sankey.png
+P[List Bullet]: PG_02_Free_Cash_Flow_Waterfall.png
+P[List Bullet]: PG_03_Five_Year_Revenue_EPS_Trend.png
+P[List Bullet]: PG_04_DuPont_ROE_Decomposition.png
+P[List Bullet]: PG_Financial_Story_Dashboard.png
+P[List Bullet]: PG_Student_Group_Assignment.docx
+P[List Bullet]: PG_Grading_Rubric.docx
+P[List Bullet]: PG_Canvas_Assignment_Copy.docx
+P[List Bullet]: PG_Model_AI_Prompt_and_REM_Guide.docx
+P[Heading 2]: Final Instructor Check Before Release
+P[List Bullet]: Open the student workbook and confirm all yellow cells are blank.
+P[List Bullet]: Run the Python solution against the student workbook and confirm all checks pass.
+P[List Bullet]: Post the 10-K, student workbook, assignment, and package requirements on Canvas.
+P[List Bullet]: Keep the instructor workbook, instructor manual, and solution images unpublished.
+TABLE 1
+Company | The Procter & Gamble Company (NYSE: PG)
+Fiscal year | Year ended June 30, 2025
+Primary data | P&G 2025 Form 10-K and accompanying Excel financial statements
+Historical data | P&G 2022 Form 10-K for FY2021-FY2022 sales and diluted EPS
+Assignment outputs | Income statement Sankey, FCF waterfall, five-year trend, and DuPont ROE decomposition
+Student tools | Instructor-provided Excel workbook, AI assistant, Python, printed/annotated code, and 10-K source
+TABLE 2
+Objective | Student Evidence | Course Connection
+Financial statement literacy | Identify revenue, operating costs, EBIT, taxes, net income, assets, liabilities, and equity in an audited 10-K. | Chs. 1-3
+Cash-flow analysis | Reconcile accounting profit to textbook FCF, cash FCF, and a company-defined non-GAAP FCF measure. | Chs. 2-3
+Time value and valuation | Explain why free cash flow, rather than accounting earnings alone, is central to financial value. | Chs. 4-5
+Risk and return | Interpret how operating performance and financial leverage combine to produce ROE. | Chs. 6-8
+AI and analytical control | Audit AI code and chart output against source documents and mathematical identities. | Across course
+TABLE 3
+Source | Key Pages / Tab | Data Used
+P&G FY2025 Form 10-K | Report p. 36 | Net sales, costs, operating income, non-operating items, taxes, net earnings, diluted EPS
+P&G FY2025 Form 10-K | Report p. 37 | FY2025 and FY2024 balance sheets
+P&G FY2025 Form 10-K | Report p. 39 | Operating cash flow, D&A, working-capital cash-flow effects, capital expenditures
+P&G FY2025 Form 10-K | Report p. 30 | Adjusted FCF definition and reconciliation
+P&G FY2022 Form 10-K | Summary / earnings statement | FY2021 and FY2022 net sales and diluted EPS
+P&G Excel file | Five source tabs | Machine-readable FY2023-FY2025 financial statements
+TABLE 4
+Line Item | FY2025 ($mm) | % of Net Sales
+Net Sales | 84,284 | 100.0%
+Cost of Products Sold | 41,164 | 48.8%
+Gross Profit | 43,120 | 51.2%
+SG&A | 22,669 | 26.9%
+Operating Income (EBIT) | 20,451 | 24.3%
+Net Non-Operating Expense | 284 | 0.3%
+Earnings Before Income Taxes | 20,167 | 23.9%
+Income Taxes | 4,102 | 4.9%
+Net Earnings | 16,065 | 19.1%
+TABLE 5
+Calculation | Formula | Solution ($mm unless stated)
+Effective tax rate | Income Taxes / EBT | $4,102 / $20,167 = 20.34%
+NOPAT | EBIT × (1 - tax rate) | $20,451 × (1 - 0.2034) = $16,291.23
+Operating NOWC FY2025 | AR + Inventory + Prepaids - AP - Accrued Liabilities | $6,185 + $7,551 + $2,100 - $15,227 - $11,318 = $-10,709
+Operating NOWC FY2024 | Same formula | $6,118 + $7,016 + $2,095 - $15,364 - $11,073 = $-11,208
+Change in NOWC | FY2025 - FY2024 | $499 use of cash
+Textbook FCF | NOPAT + D&A - CapEx - ΔNOWC | $16,291.23 + $2,847 - $3,773 - $499 = $14,866.23
+Cash FCF | CFO - CapEx | $17,817 - $3,773 = $14,044
+Other operating bridge | Cash FCF - Textbook FCF | $14,044 - $14,866.23 = $-822.23
+P&G Adjusted FCF | Cash FCF + Tax Act payment | $14,044 + $562 = $14,606
+TABLE 6
+Fiscal Year | Net Sales ($mm) | Diluted EPS
+FY2021 | 76,118 | 5.50
+FY2022 | 80,187 | 5.81
+FY2023 | 82,006 | 5.90
+FY2024 | 84,039 | 6.02
+FY2025 | 84,284 | 6.51
+TABLE 7
+Factor | Calculation | Decimal | Reported Format
+Profit Margin | $16,065 / $84,284 | 0.1906 | 19.06%
+Total Asset Turnover | $84,284 / (($125,231 + $122,370)/2) | 0.6808 | 0.681x
+Equity Multiplier | (($125,231 + $122,370)/2) / (($52,284 + $50,559)/2) | 2.4076 | 2.408x
+DuPont ROE | Profit Margin × Asset Turnover × Equity Multiplier | 0.3124 | 31.24%
+Direct ROE Check | $16,065 / (($52,284 + $50,559)/2) | 0.3124 | 31.24%
+TABLE 8
+Check | Identity | Evidence | Result
+Revenue identity | COGS + Gross Profit = Net Sales | 41,164 + 43,120 = 84,284 | PASS
+Gross profit identity | SG&A + Impairment + EBIT = Gross Profit | 22,669 + 0 + 20,451 = 43,120 | PASS
+Pretax identity | EBIT - Net Non-Operating Expense = EBT | 20,451 - 284 = 20,167 | PASS
+Net earnings identity | EBT - Taxes = Net Earnings | 20,167 - 4,102 = 16,065 | PASS
+Adjusted FCF identity | Cash FCF + Tax Payment = Adjusted FCF | 14,044 + 562 = 14,606 | PASS
+DuPont identity | Product of factors = Direct ROE | 0.3124 = 0.3124 | PASS
+TABLE 9
+Area | Common Error | Instructor Response
+Data integrity | Using calendar-year data, quarterly annualization, or a different fiscal year. | Require the June 30, 2025 audited fiscal year.
+Sankey | Flows do not add at a node. | No credit for visual polish if the accounting identity fails.
+FCF | Subtracting a negative CapEx value twice. | Check sign logic before grading downstream totals.
+FCF | Equating textbook FCF with P&G adjusted FCF. | Require definitions and reconciliation.
+Trend | Using core EPS for some years and GAAP diluted EPS for others. | Use GAAP diluted EPS consistently.
+DuPont | Using ending assets for one factor and average assets for another. | Require internally consistent denominators.
+Python | Code runs only on the student's machine because of hard-coded paths. | Require a command-line or relative-path solution.
+AI audit | Submission says 'AI was correct' without evidence. | Require the completed verification table and correction narrative.

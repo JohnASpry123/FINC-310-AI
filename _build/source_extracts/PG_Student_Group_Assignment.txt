@@ -1,0 +1,137 @@
+# PG_Student_Group_Assignment.docx
+P[Title]: FINC 310 Group Assignment
+P[Normal]: Procter & Gamble Financial Story Dashboard | AI, Python, and Audited 10-K Data
+P[Heading 1]: Purpose
+P[Normal]: Your team will use audited annual financial statements, AI, and Python to tell a coherent financial story. AI may help write code, but your team is responsible for verifying every number, formula, label, and conclusion.
+P[Heading 2]: Learning Goals
+P[List Bullet]: Read and reconcile an audited income statement, balance sheet, and cash-flow statement.
+P[List Bullet]: Explain how revenue becomes operating income and net earnings.
+P[List Bullet]: Explain how accounting profit becomes free cash flow.
+P[List Bullet]: Analyze five-year revenue and diluted EPS performance.
+P[List Bullet]: Decompose ROE into profit margin, asset turnover, and financial leverage.
+P[List Bullet]: Use AI as an analytical assistant while maintaining human control and accountability.
+P[Heading 2]: AI Use Standard
+P[Normal]: You are required to document AI use. You are not graded on whether AI generates code quickly. You are graded on whether the final code and financial analysis are accurate, understandable, reproducible, and audited.
+P[Heading 1]: 1. Team Roles and Individual Accountability
+P[Normal]: The professor may ask any team member to explain any code block, formula, or visualization. A role assignment does not excuse a student from understanding the entire submission.
+P[Heading 2]: Required Files
+P[List Bullet]: PG_FinancialStory_Student.xlsx
+P[List Bullet]: P&G FY2025 Form 10-K / annual report
+P[List Bullet]: Your final .py file
+P[List Bullet]: Four individual PNG visualizations
+P[List Bullet]: One combined dashboard PNG
+P[List Bullet]: Completed group report or slide/PDF as directed on Canvas
+P[Heading 2]: Software
+P[Code Block]: pip install pandas matplotlib pillow openpyxl
+P[Heading 1]: 2. Required Visualization 1: Income Statement Sankey
+P[Normal]: Create a width-proportional flow diagram showing where P&G's FY2025 sales dollars went. At a minimum, the flow must reconcile through these stages:
+P[List Number]: Net Sales → Cost of Products Sold + Gross Profit
+P[List Number]: Gross Profit → SG&A + Impairment Charge + Operating Income
+P[List Number]: Operating Income → Net Non-Operating Expense + Earnings Before Taxes
+P[List Number]: Earnings Before Taxes → Income Taxes + Net Earnings
+P[Heading 2]: Required Labels
+P[List Bullet]: Dollar amount in USD billions or millions.
+P[List Bullet]: Percentage of net sales.
+P[List Bullet]: Clear distinction between operating and non-operating items.
+P[List Bullet]: Audited fiscal year and data source.
+P[Heading 2]: Sankey Audit Questions
+P[List Bullet]: Does every source node equal the sum of its outgoing flows?
+P[List Bullet]: Does every target node equal the sum of its incoming flows?
+P[List Bullet]: Did AI place interest expense before or after EBIT?
+P[List Bullet]: Did AI confuse net earnings with net earnings attributable to P&G?
+P[Heading 1]: 3. Required Visualization 2: Free Cash Flow Waterfall
+P[Normal]: Build a waterfall that begins with EBIT and ends with P&G adjusted free cash flow. You must show and label the distinction among textbook FCF, cash FCF, and P&G adjusted FCF.
+P[Heading 2]: Required Explanation
+P[Normal]: Explain why textbook FCF and cash FCF are not identical and why P&G adjusted FCF is a non-GAAP measure. Do not hide the reconciliation residual.
+P[Heading 1]: 4. Required Visualization 3: Five-Year Revenue and EPS Trend
+P[Normal]: Create one visualization covering FY2021-FY2025. Show net sales and GAAP diluted EPS. Display both series clearly even though they use different units.
+P[List Bullet]: Use the fiscal-year values in the 01_Input worksheet.
+P[List Bullet]: Calculate net sales CAGR and diluted EPS CAGR over four intervals.
+P[List Bullet]: Explain which metric grew faster.
+P[List Bullet]: Identify at least two reasons EPS growth can differ from revenue growth.
+P[List Bullet]: Do not mix GAAP diluted EPS with core/non-GAAP EPS.
+P[Heading 2]: Required CAGR Formulas
+P[Code Block]: Net Sales CAGR = (FY2025 Net Sales / FY2021 Net Sales)^(1/4) - 1
+P[Code Block]: Diluted EPS CAGR = (FY2025 Diluted EPS / FY2021 Diluted EPS)^(1/4) - 1
+P[Heading 1]: 5. Required Visualization 4: DuPont ROE Decomposition
+P[Normal]: Use the simplified consolidated DuPont formula shown below. Use average FY2024/FY2025 assets and equity.
+P[Normal]: ROE = Profit Margin × Total Asset Turnover × Equity Multiplier
+P[Heading 2]: Required Interpretation
+P[List Bullet]: State which factor contributes most to the calculated ROE.
+P[List Bullet]: Explain why leverage can increase both ROE and risk.
+P[List Bullet]: Confirm that the product of the three factors equals direct ROE.
+P[List Bullet]: Explain why average balance-sheet values are preferable to ending values for this analysis.
+P[Heading 1]: 6. Required AI Prompt and REM Comments
+P[Normal]: Submit the exact prompt or prompt sequence used to create the final program. The program must begin with a REM block. REM means concise, auditable documentation—not private chain-of-thought.
+P[Heading 2]: Code Comment Standard
+P[List Bullet]: Comment every major function.
+P[List Bullet]: Use descriptive variable names.
+P[List Bullet]: Do not hard-code unexplained numbers inside chart functions.
+P[List Bullet]: Use Metric_ID values rather than fragile row numbers whenever possible.
+P[List Bullet]: Stop or warn the user if a sanity check fails.
+P[List Bullet]: Use relative or command-line file paths rather than a personal computer path.
+P[Heading 1]: 7. AI Verification and Sanity Check Requirements
+P[Normal]: Complete the 07_AI_Verification worksheet. Enter the values printed by AI or displayed in your charts. A 'PASS' cell is evidence only when the formula and source value are also correct.
+P[List Bullet]: Verify all major income-statement values.
+P[List Bullet]: Verify cash flow from operations, capital expenditures, and adjusted FCF.
+P[List Bullet]: Verify profit margin, asset turnover, equity multiplier, and ROE.
+P[List Bullet]: Verify net sales CAGR and diluted EPS CAGR.
+P[List Bullet]: Document one AI assumption that required human judgment.
+P[List Bullet]: Document one numerical, code, or labeling correction.
+P[List Bullet]: Explain one way the code could silently produce a misleading chart.
+P[Heading 2]: Required Code Annotation
+P[Normal]: Print the complete final Python program. Annotate it by hand or with Word comments. For each major function, identify the inputs, calculations, outputs, and at least one possible failure.
+P[Heading 1]: 8. Submission Package
+P[Normal]: 1.  Completed PG_FinancialStory_Student.xlsx.
+P[Normal]: 2.  One executable Python .py file.
+P[Normal]: 3.  Four individual PNG visualizations.
+P[Normal]: 4.  One combined one-page dashboard PNG.
+P[Normal]: 5.  A PDF or Word report containing the AI prompt, REM block, code annotation, verification log, and two-page financial interpretation.
+P[Normal]: 6.  A five-minute presentation in which every team member participates.
+P[Heading 2]: Financial Interpretation Questions
+P[List Bullet]: What is the most important operating insight from the Sankey?
+P[List Bullet]: What does the FCF reconciliation reveal that net income alone does not?
+P[List Bullet]: Why did diluted EPS grow faster or slower than net sales?
+P[List Bullet]: What does DuPont reveal about profitability, efficiency, and leverage?
+P[List Bullet]: What is one risk or limitation that the dashboard does not capture?
+P[Heading 2]: Submission Standard
+P[Normal]: A technically attractive chart that does not reconcile to the audited data is not acceptable. A correct answer that no team member can explain is also not acceptable.
+P[Heading 2]: Academic Integrity and AI
+P[Normal]: AI use is permitted and required for this assignment. Undisclosed AI use, invented data, fabricated source citations, or submission of code the team cannot explain may be treated as an academic-integrity issue.
+TABLE 1
+Company | The Procter & Gamble Company (NYSE: PG)
+Team size | Approximately six students
+Data provided | PG_FinancialStory_Student.xlsx and P&G FY2025 annual report
+Required outputs | Four visualizations, annotated Python, AI audit, executive interpretation, and presentation
+Points | 100 group points, including individual code-understanding questions
+Time | Designed for two class meetings plus limited team preparation
+TABLE 2
+Role | Primary Responsibility
+Data Controller | Verifies source pages, units, fiscal year, signs, and workbook labels.
+Income Statement Lead | Builds and explains the Sankey and common-size analysis.
+Cash Flow Lead | Builds and explains NOPAT, NOWC, FCF, and the reconciliation.
+Trend and DuPont Lead | Builds and explains five-year trends, CAGRs, and ROE factors.
+Python/AI Lead | Maintains the executable program and REM comments.
+Audit/Presentation Lead | Coordinates the verification log and final financial story.
+TABLE 3
+Required Step | Required Formula / Definition
+Effective Tax Rate | Income Taxes / Earnings Before Taxes
+NOPAT | EBIT × (1 - Effective Tax Rate)
+Operating NOWC | AR + Inventory + Prepaids - AP - Accrued Operating Liabilities
+Change in NOWC | FY2025 Operating NOWC - FY2024 Operating NOWC
+Textbook FCF | NOPAT + D&A - CapEx - Change in NOWC
+Cash FCF | Cash Flow from Operations - CapEx
+Other Operating Adjustments | Cash FCF - Textbook FCF
+P&G Adjusted FCF | Cash FCF + 2017 U.S. Tax Act Payment Add-back
+TABLE 4
+Factor | Formula
+Profit Margin | Net Earnings / Net Sales
+Total Asset Turnover | Net Sales / Average Total Assets
+Equity Multiplier | Average Total Assets / Average Total Shareholders' Equity
+Direct ROE Check | Net Earnings / Average Total Shareholders' Equity
+TABLE 5
+REM Section | Required Content
+Reasoning Summary | What the program is designed to accomplish and how the four visuals fit together.
+Equations | All financial formulas and sign conventions.
+Method | How the workbook is read, validated, calculated, charted, and exported.
+Limitations | Definitions, approximations, non-GAAP measures, and risks of misleading output.

@@ -1,0 +1,210 @@
+# PG_FinancialStory_Student.xlsx
+Sheets: 00_ReadMe, 01_Input, 02_Common_Size, 03_FreeCashFlow, 04_DuPont, 05_FiveYear, 06_Dashboard, 07_AI_Verification, 08_Sources
+
+## 00_ReadMe (0 rows x 0 cols)
+FINC 310 | Procter & Gamble FY2025 Financial Story Dashboard |  |  |  |  |  |  | 
+Audited Form 10-K data | Student working workbook |  |  |  |  |  |  | 
+Purpose | Create and audit an income statement Sankey, free cash flow waterfall, five-year revenue/EPS trend, and DuPont ROE decomposition. |  | Financial Model Color Conventions |  |  |  | 
+Primary source | The Procter & Gamble Company Form 10-K for the fiscal year ended June 30, 2025. |  | Blue text | Hardcoded audited inputs
+Historical source | P&G FY2022 Form 10-K supplies FY2021 and FY2022 net sales and diluted EPS for the five-year trend. |  | Green text | Links to another worksheet
+Units | USD millions except per-share data. Negative cash-flow statement items are shown in parentheses. |  | Black text | Formulas calculated on the current worksheet
+Student responsibility | AI may generate code, but every number, formula, label, and chart must be reconciled to the audited source. |  | Yellow fill | Student calculation or response required
+Python file | Run pg_financial_story_solution.py against this workbook after completing the student calculation tabs. |  | Red parentheses | Negative values
+Workbook Map |  |  |  |  |  |  | 
+01_Input | Standardized, machine-readable audited data with Metric_ID values.
+02_Common_Size | Income statement common-size analysis and margin comparisons.
+03_FreeCashFlow | Textbook FCF and reconciliation to P&G adjusted free cash flow.
+04_DuPont | Profit margin × asset turnover × equity multiplier = ROE.
+05_FiveYear | FY2021-FY2025 net sales and diluted EPS history.
+06_Dashboard | Place final four visuals here.
+07_AI_Verification | AI audit table with source values, tolerances, and pass/review status.
+08_Sources | Official URLs, page references, and data definitions.
+
+## 01_Input (0 rows x 0 cols)
+P&G Standardized Audited Financial Data |  |  |  |  |  |  |  |  | 
+Machine-readable Metric_ID values are used by the Python solution. Do not rename the sheet, headers, or Metric_ID values. |  |  |  |  |  |  |  |  | 
+USD millions except diluted EPS. Fiscal years end June 30. |  |  |  |  |  |  |  |  | 
+Metric_ID | Metric | Unit | FY2025 | FY2024 | FY2023 | FY2022 | FY2021 | Source Reference | Source URL
+Income Statement | Income Statement |  |  |  |  |  |  | P&G FY2025 Form 10-K, p. 36 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+NET_SALES | Net Sales | $mm | 84284 | 84039 | 82006 | 80187 | 76118 | 2025 10-K p. 36; 2022 10-K summary | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+COGS | Cost of Products Sold | $mm | 41164 | 40848 | 42760 |  |  | 2025 10-K p. 36 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+GROSS_PROFIT | Gross Profit | $mm |  |  |  |  |  | Net Sales - Cost of Products Sold | 
+SGA | Selling, General & Administrative Expense | $mm | 22669 | 23305 | 21112 |  |  | 2025 10-K p. 36 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+IMPAIRMENT | Indefinite-Lived Intangible Asset Impairment | $mm | 0 | 1341 | 0 |  |  | 2025 10-K p. 36 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+OPERATING_INCOME | Operating Income (EBIT) | $mm | 20451 | 18545 | 18134 |  |  | 2025 10-K p. 36 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+INTEREST_EXPENSE | Interest Expense | $mm | -907 | -925 | -756 |  |  | 2025 10-K p. 36 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+INTEREST_INCOME | Interest Income | $mm | 469 | 473 | 307 |  |  | 2025 10-K p. 36 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+OTHER_NONOP | Other Non-Operating Income, Net | $mm | 154 | 668 | 668 |  |  | 2025 10-K p. 36 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+EBT | Earnings Before Income Taxes | $mm | 20167 | 18761 | 18353 |  |  | 2025 10-K p. 36 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+INCOME_TAXES | Income Taxes | $mm | 4102 | 3787 | 3615 |  |  | 2025 10-K p. 36 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+NET_EARNINGS | Net Earnings | $mm | 16065 | 14974 | 14738 |  |  | 2025 10-K p. 36 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+NCI | Net Earnings Attributable to Noncontrolling Interests | $mm | 91 | 95 | 85 |  |  | 2025 10-K p. 36 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+NET_INCOME_PG | Net Earnings Attributable to P&G | $mm | 15974 | 14879 | 14653 |  |  | 2025 10-K p. 36 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+DILUTED_EPS | Diluted EPS | $/share | 6.51 | 6.02 | 5.9 | 5.81 | 5.5 | 2025 10-K p. 36; 2022 10-K summary | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+Balance Sheet | Balance Sheet |  |  |  |  |  |  | P&G FY2025 Form 10-K, p. 37 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+CASH | Cash and Cash Equivalents | $mm | 9556 | 9482 |  |  |  | 2025 10-K p. 37 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+AR | Accounts Receivable | $mm | 6185 | 6118 |  |  |  | 2025 10-K p. 37 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+INVENTORY | Total Inventories | $mm | 7551 | 7016 |  |  |  | 2025 10-K p. 37 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+PREPAIDS | Prepaid Expenses and Other Current Assets | $mm | 2100 | 2095 |  |  |  | 2025 10-K p. 37 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+CURRENT_ASSETS | Total Current Assets | $mm | 25392 | 24709 |  |  |  | 2025 10-K p. 37 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+PP&E | Property, Plant & Equipment, Net | $mm | 23897 | 22152 |  |  |  | 2025 10-K p. 37 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+TOTAL_ASSETS | Total Assets | $mm | 125231 | 122370 |  |  |  | 2025 10-K p. 37 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+AP | Accounts Payable | $mm | 15227 | 15364 |  |  |  | 2025 10-K p. 37 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+ACCRUED_LIABILITIES | Accrued and Other Liabilities | $mm | 11318 | 11073 |  |  |  | 2025 10-K p. 37 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+CURRENT_DEBT | Debt Due Within One Year | $mm | 9513 | 7191 |  |  |  | 2025 10-K p. 37 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+CURRENT_LIABILITIES | Total Current Liabilities | $mm | 36058 | 33627 |  |  |  | 2025 10-K p. 37 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+LONG_TERM_DEBT | Long-Term Debt | $mm | 24995 | 25269 |  |  |  | 2025 10-K p. 37 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+TOTAL_LIABILITIES | Total Liabilities | $mm | 72946 | 71811 |  |  |  | 2025 10-K p. 37 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+TOTAL_EQUITY | Total Shareholders' Equity | $mm | 52284 | 50559 |  |  |  | 2025 10-K p. 37 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+Cash Flow Statement and Company-Reported FCF | Cash Flow Statement and Company-Reported FCF |  |  |  |  |  |  | P&G FY2025 Form 10-K, pp. 39 and 30 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+D_AND_A | Depreciation and Amortization | $mm | 2847 | 2896 | 2714 |  |  | 2025 10-K p. 39 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+CFO | Cash Flow from Operating Activities | $mm | 17817 | 19846 | 16848 |  |  | 2025 10-K p. 39 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+CAPEX | Capital Expenditures | $mm | -3773 | -3322 | -3062 |  |  | 2025 10-K p. 39 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+CHANGE_AR | Cash Flow Effect: Change in Accounts Receivable | $mm | 45 | -766 | -307 |  |  | 2025 10-K p. 39 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+CHANGE_INVENTORY | Cash Flow Effect: Change in Inventories | $mm | -324 | -70 | -119 |  |  | 2025 10-K p. 39 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+CHANGE_AP | Cash Flow Effect: Change in Accounts Payable | $mm | -542 | 878 | -447 |  |  | 2025 10-K p. 39 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+TAX_ACT_PAYMENT | 2017 U.S. Tax Act Payment Added Back by P&G | $mm | 562 | 422 |  |  |  | 2025 10-K p. 30 | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+ADJUSTED_FCF | P&G Adjusted Free Cash Flow | $mm | 14606 | 16946 |  |  |  | 2025 10-K p. 30 (non-GAAP) | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
+
+## 02_Common_Size (0 rows x 0 cols)
+P&G Common-Size Income Statement |  |  |  |  | 
+Each amount is expressed as a percentage of net sales. Basis-point change = FY2025 margin - FY2024 margin. |  |  |  |  | 
+Metric | FY2025 ($mm) | FY2025 % Sales | FY2024 ($mm) | FY2024 % Sales | Change (bps)
+Net Sales | ='01_Input'!D7 |  | ='01_Input'!E7 |  | 
+Cost of Products Sold | ='01_Input'!D8 |  | ='01_Input'!E8 |  | 
+Gross Profit | ='01_Input'!D9 |  | ='01_Input'!E9 |  | 
+SG&A | ='01_Input'!D10 |  | ='01_Input'!E10 |  | 
+Impairment Charge | ='01_Input'!D11 |  | ='01_Input'!E11 |  | 
+Operating Income (EBIT) | ='01_Input'!D12 |  | ='01_Input'!E12 |  | 
+Earnings Before Income Taxes | ='01_Input'!D16 |  | ='01_Input'!E16 |  | 
+Income Taxes | ='01_Input'!D17 |  | ='01_Input'!E17 |  | 
+Net Earnings | ='01_Input'!D18 |  | ='01_Input'!E18 |  | 
+Interpretation Prompts |  |  |  |  | 
+1. | What percentage of each sales dollar remained after cost of products sold?
+2. | Did the operating margin improve or decline from FY2024 to FY2025? By how many basis points?
+3. | Which operating cost line best explains the change in EBIT margin?
+4. | Why should the FY2024 impairment charge not be treated as a recurring cash expense?
+
+## 03_FreeCashFlow (0 rows x 0 cols)
+P&G FY2025 Free Cash Flow Analysis and Reconciliation |  |  |  |  | 
+Textbook FCF is reconciled to cash FCF and P&G's company-defined adjusted FCF. The residual is an audit finding, not an error. |  |  |  |  | 
+Component | Formula / Definition | FY2025 Value | Waterfall Sign | Source / Audit Note | Status
+EBIT | Operating income | ='01_Input'!D12 | Absolute | 10-K p. 36 | Complete
+Effective Tax Rate | Income taxes / EBT |  | Rate | Taxes / EBT | Complete
+Tax on EBIT | -EBIT × effective tax rate |  | Negative | Calculated | Complete
+NOPAT | EBIT × (1 - tax rate) |  | Subtotal | Calculated | Complete
+Depreciation & Amortization | Noncash add-back | ='01_Input'!D40 | Positive | 10-K p. 39 | Complete
+Capital Expenditures | Cash investment; subtract |  | Negative | 10-K p. 39 | Complete
+Operating NOWC - FY2025 | AR + Inventory + Prepaids - AP - Accrued Liabilities |  | Reference | Balance sheet | Complete
+Operating NOWC - FY2024 | Same definition using FY2024 balance sheet |  | Reference | Balance sheet | Complete
+Change in Operating NOWC | FY2025 NOWC - FY2024 NOWC; increase is a use of cash |  | Negative if increase | Calculated | Complete
+Textbook Free Cash Flow | NOPAT + D&A - CapEx - ΔNOWC |  | Subtotal | FINC 310 formula | Complete
+Cash Flow from Operations | Audited cash flow statement | ='01_Input'!D41 | Reference | 10-K p. 39 | Complete
+Cash Free Cash Flow | CFO - CapEx |  | Subtotal | Calculated | Complete
+Other Operating Adjustments | Cash FCF - Textbook FCF |  | Bridge | Residual to audited CFO | Complete
+2017 U.S. Tax Act Payment Add-back | P&G non-GAAP adjustment | ='01_Input'!D46 | Positive | 10-K p. 30 | Complete
+P&G Adjusted Free Cash Flow | Cash FCF + Tax Act payment add-back |  | Total | 10-K p. 30 | Complete
+Reconciliation Difference | Calculated adjusted FCF - reported adjusted FCF |  | Zero | Must equal zero | Complete
+Waterfall Data Table |  |  |  |  | 
+Step | Measure | Signed Value ($mm) |  |  | 
+EBIT | Total |  |  |  | 
+Tax on EBIT | Change |  |  |  | 
+NOPAT | Total |  |  |  | 
+D&A | Change |  |  |  | 
+Capital Expenditures | Change |  |  |  | 
+Increase in NOWC | Change |  |  |  | 
+Textbook FCF | Total |  |  |  | 
+Other Operating Adjustments | Change |  |  |  | 
+Cash FCF | Total |  |  |  | 
+2017 Tax Act Payment Add-back | Change |  |  |  | 
+P&G Adjusted FCF | Total |  |  |  | 
+
+## 04_DuPont (0 rows x 0 cols)
+P&G FY2025 DuPont ROE Decomposition |  |  |  |  | 
+ROE = Profit Margin × Total Asset Turnover × Equity Multiplier. Average balances use FY2024 and FY2025. |  |  |  |  | 
+Metric | Numerator | Denominator | Result | Direct Check | Interpretation
+Profit Margin | Net Earnings | Net Sales |  |  | Profit retained from each sales dollar.
+Total Asset Turnover | Net Sales | Average Total Assets |  |  | Sales generated per dollar of assets.
+Equity Multiplier | Average Total Assets | Average Total Equity |  |  | Financial leverage applied to equity.
+Return on Equity | Product of three factors |  |  |  | Return generated on average shareholders' equity.
+Calculation Inputs |  |  | 
+Net Sales | ='01_Input'!D7
+Net Earnings | ='01_Input'!D18
+Total Assets FY2025 | ='01_Input'!D30
+Total Assets FY2024 | ='01_Input'!E30
+Average Total Assets | 
+Total Equity FY2025 | ='01_Input'!D37
+Total Equity FY2024 | ='01_Input'!E37
+Average Total Equity | 
+Required Interpretation |  |  |  |  | 
+1. | Which DuPont factor contributes most to P&G's high ROE?
+2. | Why can a high equity multiplier increase both return and financial risk?
+3. | Does the DuPont product equal direct ROE? Document any difference.
+4. | Would using ending assets and equity instead of averages change the answer? Why?
+
+## 05_FiveYear (0 rows x 0 cols)
+P&G Five-Year Net Sales and Diluted EPS Trend |  |  |  |  |  |  | 
+FY2021-FY2022 values come from P&G's FY2022 Form 10-K; FY2023-FY2025 values come from the FY2025 Form 10-K. |  |  |  |  |  |  | 
+Fiscal Year | Net Sales ($mm) | Sales Growth | Diluted EPS | EPS Growth |  | CAGR Summary | 
+2021 | ='01_Input'!H7 |  | ='01_Input'!H21 |  |  | Net Sales CAGR | 
+2022 | ='01_Input'!G7 |  | ='01_Input'!G21 |  |  | Diluted EPS CAGR | 
+2023 | ='01_Input'!F7 |  | ='01_Input'!F21 | 
+2024 | ='01_Input'!E7 |  | ='01_Input'!E21 | 
+2025 | ='01_Input'!D7 |  | ='01_Input'!D21 | 
+Financial Story Questions |  |  |  |  |  |  | 
+1. | Did net sales or diluted EPS grow faster over the five-year period?
+2. | What could cause EPS to grow faster than sales? Consider margins and share repurchases.
+3. | Is the FY2025 sales increase economically large even though rounded percentage growth is approximately zero?
+4. | What additional data would you want before forecasting the next five years?
+
+## 06_Dashboard (0 rows x 0 cols)
+Procter & Gamble FY2025 Financial Story Dashboard |  |  |  |  |  |  | 
+Audited fiscal year ended June 30, 2025 | USD millions except EPS |  |  |  |  |  |  | 
+Net Sales | EBIT Margin | Net Margin | Adjusted FCF | DuPont ROE | Sales CAGR | EPS CAGR
+1. Income Statement Sankey
+Paste or insert your verified image here. |  |  |  |  |  |  | 
+3. Five-Year Revenue and EPS Trend
+Paste or insert your verified image here. |  |  |  |  |  |  | 
+
+## 07_AI_Verification (0 rows x 0 cols)
+AI Verification and Sanity-Check Log |  |  |  |  |  | 
+Do not submit a chart until the underlying value checks pass. Enter the AI-reported value exactly as displayed in the AI output or chart. |  |  |  |  |  | 
+Check | Source / Calculated Value | AI-Reported Value | Variance | Tolerance | Status | Evidence / Correction Note
+Net Sales | ='01_Input'!D7 |  | =IF(C5="","",C5-B5) | 1 | =IF(C5="","ENTER AI VALUE",IF(ABS(D5)<=E5,"PASS","REVIEW")) | Document source page, prompt revision, or code correction.
+Cost of Products Sold | ='01_Input'!D8 |  | =IF(C6="","",C6-B6) | 1 | =IF(C6="","ENTER AI VALUE",IF(ABS(D6)<=E6,"PASS","REVIEW")) | Document source page, prompt revision, or code correction.
+Gross Profit | ='01_Input'!D9 |  | =IF(C7="","",C7-B7) | 1 | =IF(C7="","ENTER AI VALUE",IF(ABS(D7)<=E7,"PASS","REVIEW")) | Document source page, prompt revision, or code correction.
+SG&A | ='01_Input'!D10 |  | =IF(C8="","",C8-B8) | 1 | =IF(C8="","ENTER AI VALUE",IF(ABS(D8)<=E8,"PASS","REVIEW")) | Document source page, prompt revision, or code correction.
+Operating Income (EBIT) | ='01_Input'!D12 |  | =IF(C9="","",C9-B9) | 1 | =IF(C9="","ENTER AI VALUE",IF(ABS(D9)<=E9,"PASS","REVIEW")) | Document source page, prompt revision, or code correction.
+Earnings Before Taxes | ='01_Input'!D16 |  | =IF(C10="","",C10-B10) | 1 | =IF(C10="","ENTER AI VALUE",IF(ABS(D10)<=E10,"PASS","REVIEW")) | Document source page, prompt revision, or code correction.
+Income Taxes | ='01_Input'!D17 |  | =IF(C11="","",C11-B11) | 1 | =IF(C11="","ENTER AI VALUE",IF(ABS(D11)<=E11,"PASS","REVIEW")) | Document source page, prompt revision, or code correction.
+Net Earnings | ='01_Input'!D18 |  | =IF(C12="","",C12-B12) | 1 | =IF(C12="","ENTER AI VALUE",IF(ABS(D12)<=E12,"PASS","REVIEW")) | Document source page, prompt revision, or code correction.
+Cash Flow from Operations | ='01_Input'!D41 |  | =IF(C13="","",C13-B13) | 1 | =IF(C13="","ENTER AI VALUE",IF(ABS(D13)<=E13,"PASS","REVIEW")) | Document source page, prompt revision, or code correction.
+Capital Expenditures | =ABS('01_Input'!D42) |  | =IF(C14="","",C14-B14) | 1 | =IF(C14="","ENTER AI VALUE",IF(ABS(D14)<=E14,"PASS","REVIEW")) | Document source page, prompt revision, or code correction.
+P&G Adjusted FCF | ='01_Input'!D47 |  | =IF(C15="","",C15-B15) | 1 | =IF(C15="","ENTER AI VALUE",IF(ABS(D15)<=E15,"PASS","REVIEW")) | Document source page, prompt revision, or code correction.
+Profit Margin | ='04_DuPont'!D5 |  | =IF(C16="","",C16-B16) | 0.0005 | =IF(C16="","ENTER AI VALUE",IF(ABS(D16)<=E16,"PASS","REVIEW")) | Document source page, prompt revision, or code correction.
+Asset Turnover | ='04_DuPont'!D6 |  | =IF(C17="","",C17-B17) | 0.0005 | =IF(C17="","ENTER AI VALUE",IF(ABS(D17)<=E17,"PASS","REVIEW")) | Document source page, prompt revision, or code correction.
+Equity Multiplier | ='04_DuPont'!D7 |  | =IF(C18="","",C18-B18) | 0.0005 | =IF(C18="","ENTER AI VALUE",IF(ABS(D18)<=E18,"PASS","REVIEW")) | Document source page, prompt revision, or code correction.
+Return on Equity | ='04_DuPont'!D8 |  | =IF(C19="","",C19-B19) | 0.0005 | =IF(C19="","ENTER AI VALUE",IF(ABS(D19)<=E19,"PASS","REVIEW")) | Document source page, prompt revision, or code correction.
+Sales CAGR | ='05_FiveYear'!H5 |  | =IF(C20="","",C20-B20) | 0.0005 | =IF(C20="","ENTER AI VALUE",IF(ABS(D20)<=E20,"PASS","REVIEW")) | Document source page, prompt revision, or code correction.
+EPS CAGR | ='05_FiveYear'!H6 |  | =IF(C21="","",C21-B21) | 0.0005 | =IF(C21="","ENTER AI VALUE",IF(ABS(D21)<=E21,"PASS","REVIEW")) | Document source page, prompt revision, or code correction.
+Required AI Audit Narrative |  |  |  |  |  | 
+1. | Identify one AI-generated assumption that required human judgment.
+2. | Identify one place where the Python code could silently produce a misleading chart.
+3. | Describe one numerical or labeling mistake you corrected.
+4. | Explain why P&G's adjusted FCF differs from the textbook FCF calculation.
+5. | State whether your final dashboard is reasonable and cite at least three checks.
+
+## 08_Sources (0 rows x 0 cols)
+Sources, Definitions, and Reproducibility Notes |  |  |  | 
+Source ID | Source | URL / File | Relevant Pages | Use in Assignment
+S1 | P&G FY2025 Form 10-K | https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm | pp. 30, 36-39 | FY2023-FY2025 statements, FY2025 balance sheet, adjusted FCF reconciliation
+S2 | P&G FY2022 Form 10-K | https://www.sec.gov/Archives/edgar/data/80424/000008042422000064/pg-20220630.htm | Summary; Statements of Earnings | FY2021-FY2022 net sales and diluted EPS
+S3 | P&G Investor Relations Annual Reports | https://www.pginvestor.com/financials/annual-reports/default.aspx | 2025 annual report page | Independent download location for the audited annual report and Excel financial statements
+S4 | Uploaded machine-readable source | PG-2025-Financial-Statements-for-IR-site.xlsx | All five worksheets | Primary extraction file used to standardize FY2023-FY2025 audited data
+S5 | Uploaded annual report | Proctor and Gamble Annual Report.pdf | PDF pages 38-41 / report pp. 36-39 | Visual verification of audited statements
+Key Definitions |  |  |  | 
+Operating NOWC | Accounts receivable + inventory + prepaids - accounts payable - accrued operating liabilities. | Excludes cash and interest-bearing debt.
+Textbook FCF | NOPAT + D&A - capital expenditures - change in operating NOWC. | A simplified unlevered FCF measure used in FINC 310.
+Cash FCF | Cash flow from operating activities - capital expenditures. | A direct cash-flow statement measure.
+P&G Adjusted FCF | Operating cash flow - capital spending + 2017 U.S. Tax Act payments. | A company-defined non-GAAP measure; not identical to textbook FCF.
+DuPont ROE | Profit margin × total asset turnover × equity multiplier. | Uses average FY2024/FY2025 assets and total shareholders' equity.
